@@ -1,0 +1,18 @@
+---
+title: "oldestPeople"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(gov.1005.data)
+```
+
+The oldest members of congress are
+```{r}
+data(congress)
+congress %>%arrange(desc(age))
+
+```
+
