@@ -13,6 +13,14 @@ The oldest members of congress are
 ```{r}
 data(congress)
 congress %>%arrange(desc(age))
+```
 
+
+```{r}
+age<-congress%>% filter(party %in% c("D", "R")) %>% group_by(year,party) %>% summarise(avgAge=mean(age))
+
+ggplot(age, aes(x=year, y=avgAge, color = party))+
+  geom_line()+
+  labs(title="Yay", xlab="Year", ylab="Age")
 ```
 
